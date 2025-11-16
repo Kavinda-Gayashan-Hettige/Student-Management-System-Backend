@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:5173")
@@ -19,4 +21,12 @@ public class StudentController {
         service.addStudent(student);
 
     }
+
+    @GetMapping("/all")
+    public void getAllStudents(){
+     service.getAll();
+    }
+
+
+
 }

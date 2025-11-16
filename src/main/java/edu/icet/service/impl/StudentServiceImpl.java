@@ -7,6 +7,8 @@ import edu.icet.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class StudentServiceImpl implements StudentService {
@@ -22,4 +24,11 @@ public class StudentServiceImpl implements StudentService {
                         student.getEmail()
                 ));
     }
+
+    @Override
+    public void getAll() {
+        repository.findAll();
+    }
+
+
 }
