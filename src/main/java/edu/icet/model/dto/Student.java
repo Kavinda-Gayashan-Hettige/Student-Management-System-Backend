@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Student {
-    private String studentID;
+    private Long studentID;
     private String studentName;
     private int age;
     private LocalDate dob;

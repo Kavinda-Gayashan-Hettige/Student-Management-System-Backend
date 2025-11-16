@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -26,18 +27,30 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void getAll() {
-        repository.findAll();
+    public List<Student> getAll() {
+        List<StudentEntity> entities = repository.findAll();
+        return entities.stream()
+                .map(entity -> new Student(
+                        entity.getStudentID(),
+                        entity.getStudentName(),
+                        entity.getAge(),
+                        entity.getDob(),
+                        entity.getEmail(),
+                        entity.getAddress()
+                ))
+                .collect(Collectors.toList());
     }
 
+
+
     @Override
-    public void updateStudent(String id, Student updatedStudent) {
+    public void updateStudent(Long id, Student updatedStudent) {
         updatedStudent.setStudentID(id);
         repository.save(new StudentEntity(updatedStudent));
     }
 
     @Override
-    public void deleteStudent(String id) {
+    public void deleteStudent(Long id) {
         repository.deleteAll();
     }
 

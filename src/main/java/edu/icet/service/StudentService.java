@@ -7,10 +7,10 @@ import java.util.List;
 public interface StudentService {
     void addStudent(Student student);
 
-    void getAll();
+    List<Student> getAll();
 
 
-    void updateStudent(String id, Student updatedStudent);
+    void updateStudent(Long id, Student updatedStudent);
 
-    void deleteStudent(String id);
+    void deleteStudent(Long id);
 }

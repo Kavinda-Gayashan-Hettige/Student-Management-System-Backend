@@ -12,11 +12,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "customer")
+@Table(name = "student")
 public class StudentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String studentID;
+    private Long studentID;
     private String studentName;
     private int age;
     private LocalDate dob;
@@ -24,5 +24,12 @@ public class StudentEntity {
     private String address;
 
     public StudentEntity(Student updatedStudent) {
+        this.studentID = updatedStudent.getStudentID();
+        this.studentName = updatedStudent.getStudentName();
+        this.age = updatedStudent.getAge();
+        this.dob = updatedStudent.getDob();
+        this.email = updatedStudent.getEmail();
+        this.address = updatedStudent.getAddress();
     }
+
 }

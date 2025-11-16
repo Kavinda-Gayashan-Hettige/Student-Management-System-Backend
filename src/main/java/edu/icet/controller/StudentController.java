@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:5173")
+@RequestMapping("/student")
 
 public class StudentController {
 
@@ -23,12 +25,13 @@ public class StudentController {
     }
 
     @GetMapping("/all")
-    public void getAllStudents(){
-     service.getAll();
+    public List<Student> getAllStudents() {
+        return service.getAll();
     }
 
+
     @PutMapping("/update/{id}")
-    public void updateStudent(@PathVariable String id, @RequestBody Student updatedStudent) {
+    public void updateStudent(@PathVariable Long id, @RequestBody Student updatedStudent) {
         updatedStudent.setStudentID(id);// Ensure ID is set
         service.updateStudent(id, updatedStudent);
     }
@@ -36,7 +39,7 @@ public class StudentController {
 
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteStudent(@PathVariable String id) {
+    public void deleteStudent(@PathVariable Long id) {
         service.deleteStudent(id);
     }
 
