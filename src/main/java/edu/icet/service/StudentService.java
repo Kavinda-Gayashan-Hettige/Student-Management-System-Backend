@@ -8,4 +8,7 @@ public interface StudentService {
     void addStudent(Student student);
 
     void getAll();
+
+
+    void updateStudent(String id, Student updatedStudent);
 }

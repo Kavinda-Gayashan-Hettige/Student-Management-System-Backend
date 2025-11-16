@@ -1,8 +1,7 @@
 package edu.icet.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import edu.icet.model.dto.Student;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -13,9 +12,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table
+@Table(name = "customer")
 public class StudentEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String studentID;
     private String studentName;
     private int age;
@@ -23,4 +23,6 @@ public class StudentEntity {
     private String email;
     private String address;
 
+    public StudentEntity(Student updatedStudent) {
+    }
 }

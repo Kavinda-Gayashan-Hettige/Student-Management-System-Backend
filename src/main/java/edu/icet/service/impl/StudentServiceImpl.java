@@ -30,5 +30,14 @@ public class StudentServiceImpl implements StudentService {
         repository.findAll();
     }
 
+    @Override
+    public void updateStudent(String id, Student updatedStudent) {
+        updatedStudent.setStudentID(id);
+        repository.save(new StudentEntity(updatedStudent));
+    }
+
+
+
+
 
 }

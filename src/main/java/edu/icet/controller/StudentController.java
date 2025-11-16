@@ -27,6 +27,16 @@ public class StudentController {
      service.getAll();
     }
 
+    @PutMapping("/update/{id}")
+    public void updateStudent(@PathVariable String id, @RequestBody Student updatedStudent) {
+        updatedStudent.setStudentID(id);// Ensure ID is set
+        service.updateStudent(id, updatedStudent);
+    }
+
+
+
+
+
 
 
 }
