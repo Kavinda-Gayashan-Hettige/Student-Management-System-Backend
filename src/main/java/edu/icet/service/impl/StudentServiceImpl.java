@@ -36,8 +36,10 @@ public class StudentServiceImpl implements StudentService {
         repository.save(new StudentEntity(updatedStudent));
     }
 
-
-
+    @Override
+    public void deleteStudent(String id) {
+        repository.deleteAll();
+    }
 
 
 }

@@ -34,8 +34,11 @@ public class StudentController {
     }
 
 
-
-
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteStudent(@PathVariable String id) {
+        service.deleteStudent(id);
+    }
 
 
 

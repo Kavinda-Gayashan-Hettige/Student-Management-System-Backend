@@ -11,4 +11,6 @@ public interface StudentService {
 
 
     void updateStudent(String id, Student updatedStudent);
+
+    void deleteStudent(String id);
 }
