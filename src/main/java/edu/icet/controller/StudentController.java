@@ -38,10 +38,11 @@ public class StudentController {
 
 
     @DeleteMapping("/delete/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteStudent(@PathVariable Long id) {
         service.deleteStudent(id);
     }
+
+
 
 
 
